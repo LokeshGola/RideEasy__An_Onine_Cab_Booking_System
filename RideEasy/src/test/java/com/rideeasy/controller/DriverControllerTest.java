@@ -20,8 +20,7 @@ public class DriverControllerTest {
     MockMvc mockMvc;
 
     private Driver requestDriver;
-    private Driver reponseDriver;
-
+    private Driver responseDriver;
 
     @BeforeEach
     public void init(){
@@ -35,15 +34,15 @@ public class DriverControllerTest {
         requestDriver.setEmail("ramu@gmail.com");
         requestDriver.setLicenceNumber("AB-1234567890123");
 
-        reponseDriver = new Driver();
-        reponseDriver.setDriverId(10);
-        reponseDriver.setName("Ramu");
-        reponseDriver.setUserName("Ramu123");
-        reponseDriver.setPassword("dddddddd");
-        reponseDriver.setAddress("Bengaluru");
-        reponseDriver.setMobileNumber("9867453612");
-        reponseDriver.setEmail("ramu@gmail.com");
-        reponseDriver.setLicenceNumber("AB-1234567890123");
+        responseDriver = new Driver();
+        responseDriver.setDriverId(10);
+        responseDriver.setName("Ramu");
+        responseDriver.setUserName("Ramu123");
+        responseDriver.setPassword("abcd");
+        responseDriver.setAddress("Bengaluru");
+        responseDriver.setMobileNumber("9867453612");
+        responseDriver.setEmail("ramu@gmail.com");
+        responseDriver.setLicenceNumber("AB-1234567890123");
     }
 
 

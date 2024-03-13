@@ -28,7 +28,7 @@ public abstract class AbstractUser {
     @NotNull(message = "Password can not be null")
     @NotBlank(message = "Password can not be Blank")
     @Size(min = 4,message = "Password length more than 4 characters")
-//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
     @NotNull(message = "address can not be null")
     @NotBlank(message = "Address can not be Blank")
