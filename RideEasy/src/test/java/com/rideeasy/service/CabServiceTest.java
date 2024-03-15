@@ -54,7 +54,7 @@ public class CabServiceTest {
     public void testInsertCab_whenValidDetailsGiven_shouldReturnRegisteredCab() {
         //Arrange
         // Mocking repository method to return empty optional indicating cab doesn't exist
-        when(cabRepository.findById(null)).thenReturn(Optional.empty());             // ===================== why findById method taking null value
+        when(cabRepository.findById(requestCab.getCabId())).thenReturn(Optional.empty());
         // Mocking repository method to return the persisted cab
         when(cabRepository.save(any(Cab.class))).thenReturn(responseCab);
 
@@ -62,8 +62,9 @@ public class CabServiceTest {
         Cab registeredCab = cabService.insertCab(requestCab);
 
         // Assert
+        assertNotNull(registeredCab.getCabId(),"cab id must not be null");
         assertNotNull(registeredCab,"registeredCab should not be null");
-        assertEquals(responseCab, registeredCab);
+        assertEquals(responseCab, registeredCab, "cab not registered");
         // Verifying that findById and save methods are called
         verify(cabRepository, times(1)).findById(requestCab.getCabId());
         verify(cabRepository, times(1)).save(requestCab);
@@ -73,13 +74,13 @@ public class CabServiceTest {
     public void testInsertCab_CabAlreadyExists() {
         //Arrange
         // Mocking repository method to return existing cab
-        when(cabRepository.findById(null)).thenReturn(Optional.of(responseCab));
+        when(cabRepository.findById(requestCab.getCabId())).thenReturn(Optional.of(responseCab));
         //Act and Assert
         assertThrows(RideEasyException.class,()->{
             cabService.insertCab(requestCab);
         },"Should have been thrown RideEasyException");
         //Verifying
-        verify(cabRepository, times(1)).findById(null);    // ===================== why findById method taking null value
+        verify(cabRepository, times(1)).findById(requestCab.getCabId());
     }
     @Test
     public void testUpdateCab_Success() {
