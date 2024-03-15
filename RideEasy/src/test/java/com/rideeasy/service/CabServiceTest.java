@@ -1,6 +1,5 @@
 package com.rideeasy.service;
 
-import com.rideeasy.exception.NotFoundException;
 import com.rideeasy.exception.RideEasyException;
 import com.rideeasy.model.Cab;
 import com.rideeasy.repository.CabRepository;
