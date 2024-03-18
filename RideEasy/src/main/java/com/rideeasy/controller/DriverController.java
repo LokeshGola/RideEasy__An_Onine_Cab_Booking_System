@@ -26,7 +26,6 @@ public class DriverController {
 
     @GetMapping("/hello")
     public String testHandler(){
-//        return "Welcome to Driver Handler spring security ";
         return "Welcome to Driver Handler spring security ";
     }
 
